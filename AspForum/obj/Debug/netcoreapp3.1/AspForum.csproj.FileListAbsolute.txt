@@ -57,7 +57,6 @@ D:\Duni\AspForum\AspForum\AspForum\bin\Debug\netcoreapp3.1\runtimes\win-x86\nati
 D:\Duni\AspForum\AspForum\AspForum\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\Duni\AspForum\AspForum\AspForum\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\Duni\AspForum\AspForum\AspForum\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\Duni\AspForum\AspForum\AspForum\obj\Debug\netcoreapp3.1\AspForum.csprojAssemblyReference.cache
 D:\Duni\AspForum\AspForum\AspForum\obj\Debug\netcoreapp3.1\AspForum.AssemblyInfoInputs.cache
 D:\Duni\AspForum\AspForum\AspForum\obj\Debug\netcoreapp3.1\AspForum.AssemblyInfo.cs
 D:\Duni\AspForum\AspForum\AspForum\obj\Debug\netcoreapp3.1\AspForum.RazorAssemblyInfo.cache
@@ -167,3 +166,6 @@ D:\Duni\AspForum\AspForum\AspForum\bin\Debug\netcoreapp3.1\StarkbankEcdsa.dll
 D:\Duni\AspForum\AspForum\AspForum\obj\Debug\netcoreapp3.1\AspForum.csproj.CoreCompileInputs.cache
 D:\Duni\AspForum\AspForum\AspForum\obj\Debug\netcoreapp3.1\AspForum.MvcApplicationPartsAssemblyInfo.cs
 D:\Duni\AspForum\AspForum\AspForum\obj\Debug\netcoreapp3.1\AspForum.MvcApplicationPartsAssemblyInfo.cache
+D:\Duni\AspForum\AspForum\AspForum\obj\Debug\netcoreapp3.1\Razor\Views\Forum\Index.cshtml.g.cs
+D:\Duni\AspForum\AspForum\AspForum\obj\Debug\netcoreapp3.1\AspForum.csprojAssemblyReference.cache
+D:\Duni\AspForum\AspForum\AspForum\obj\Debug\netcoreapp3.1\Razor\Views\Forum\Topic.cshtml.g.cs

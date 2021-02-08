@@ -1,0 +1,37 @@
+﻿@model AspForum.Models.PostsListModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<h1>@Model.topicName</h1>
+<table class="table table-hover" id="tablePost">
+    <tbody>
+        @foreach (var post in Model.postsList)
+        {
+            <tr class="mt-2 mb-2">
+                <td class="align-content-start border-bottom">
+                    <div class="container" style="height: 50%">
+                        <p>@post.User.Email</p>
+                    </div>
+                    <div class="container" style="height: 50%">
+                        <p>@post.Created</p>
+                    </div>
+                </td>
+                <td>
+                    @post.Content
+                </td>
+                @if (SignInManager.IsSignedIn(User) && User.Identity.Name == post.User.UserName)
+                {
+                    <td>
+
+                        <button class="btn btn-dark">Edit</button>
+
+
+                        <button class="btn btn-danger">Delete</button>
+
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

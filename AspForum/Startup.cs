@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using AspForum.Services;
 using WebPWrecover.Services;
+using AspForum.Interfaces;
 
 namespace AspForum
 {
@@ -39,6 +40,8 @@ namespace AspForum
             services.AddRazorPages();
 
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddScoped<ITopic, TopicService>();
+            services.AddScoped<IPost, PostService>();
             services.Configure<AuthMessageSenderOptions>(Configuration);
         }
 
