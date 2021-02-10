@@ -18,7 +18,7 @@ namespace WebPWrecover.Services
 
         public Task SendEmailAsync(string email, string subject, string message)
         {
-            return Execute(Options.SendGridKey, subject, message, email);
+            return Execute("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", subject, message, email);
         }
 
         public Task Execute(string apiKey, string subject, string message, string email)
@@ -26,7 +26,7 @@ namespace WebPWrecover.Services
             var client = new SendGridClient(apiKey);
             var msg = new SendGridMessage()
             {
-                From = new EmailAddress("aspforumtest@gmail.com", Options.SendGridUser),
+                From = new EmailAddress("aspforumtest@gmail.com", "apikey"),
                 Subject = subject,
                 PlainTextContent = message,
                 HtmlContent = message
@@ -41,3 +41,7 @@ namespace WebPWrecover.Services
         }
     }
 }
+
+
+//dotnet user-secrets set SendGridUser apikey  --project C:\Users\Admin\source\repos\AspForum\aspforum\AspForum
+//dotnet user-secrets set SendGridKey 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  --project C:\Users\Admin\source\repos\AspForum\aspforum\AspForum

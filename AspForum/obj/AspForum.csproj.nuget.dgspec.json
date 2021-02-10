@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Duni\\AspForum\\AspForum\\AspForum\\AspForum.csproj": {}
+    "C:\\Users\\Admin\\source\\repos\\AspForum\\aspforum\\AspForum\\AspForum.csproj": {}
   },
   "projects": {
-    "D:\\Duni\\AspForum\\AspForum\\AspForum\\AspForum.csproj": {
+    "C:\\Users\\Admin\\source\\repos\\AspForum\\aspforum\\AspForum\\AspForum.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Duni\\AspForum\\AspForum\\AspForum\\AspForum.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\AspForum\\aspforum\\AspForum\\AspForum.csproj",
         "projectName": "AspForum",
-        "projectPath": "D:\\Duni\\AspForum\\AspForum\\AspForum\\AspForum.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "D:\\Duni\\AspForum\\AspForum\\AspForum\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\AspForum\\aspforum\\AspForum\\AspForum.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\AspForum\\aspforum\\AspForum\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
@@ -85,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
