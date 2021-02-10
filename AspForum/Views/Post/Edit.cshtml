@@ -1,0 +1,16 @@
+﻿@model AspForum.Models.EditPostModel
+
+<h2>Edit a post content:</h2>
+
+<form asp-action="EditPost" method="post" id="posEditingForm">
+    
+    <div class="form-group">
+        <label asp-for="newContent"></label>
+        <textarea asp-for="newContent" class="form-control"></textarea>
+    </div>
+    <button type="submit" id="creationSubmitBtn" class="btn btn-success">
+        Submit
+    </button>
+    <input asp-for="postId" type="hidden" />
+    <input asp-for="topicId" type="hidden" />
+</form>

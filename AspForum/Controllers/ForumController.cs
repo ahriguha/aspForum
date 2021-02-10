@@ -45,7 +45,7 @@ namespace AspForum.Controllers
             var model = new PostsListModel
             {
                 postsList = posts,
-                topicName = topic.Title
+                topic = topic
             };
 
             return View(model);

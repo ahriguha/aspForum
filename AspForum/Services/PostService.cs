@@ -1,6 +1,7 @@
 ﻿using AspForum.Data;
 using AspForum.Interfaces;
 using AspForum.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,24 +17,34 @@ namespace AspForum.Services
             _context = context;
         }
 
-        public Task Create(Post post)
+        public async Task Create(Post post)
         {
-            throw new NotImplementedException();
+            _context.Add(post);
+            await _context.SaveChangesAsync(); 
         }
 
-        public Task Delete(int postId)
+        public async Task Delete(int postId)
         {
-            throw new NotImplementedException();
+            Post post = new Post { Id = postId };
+            _context.Posts.Attach(post);
+            _context.Posts.Remove(post);
+            await _context.SaveChangesAsync();
         }
 
         public IEnumerable<Post> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Posts;               
         }
 
         public Post GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Posts
+                .Where(p => p.Id == id)
+                .Include(p => p.topic)
+                .Include(t => t.User)
+                .FirstOrDefault();
+
+            
         }
 
         public IEnumerable<Post> GetPostsForTopic(int topicId)
@@ -45,9 +56,13 @@ namespace AspForum.Services
            
         }
 
-        public Task UpdatePostContent(int postId, string newContent)
+        public async Task UpdatePostContent(int postId, string newContent)
         {
-            throw new NotImplementedException();
+            var editedPost = _context.Posts
+                .Where(p => p.Id == postId)
+                .FirstOrDefault();
+            editedPost.Content = newContent;
+            await _context.SaveChangesAsync();
         }
 
         public Task UpdatePostTitle(int postId, string newTitle)

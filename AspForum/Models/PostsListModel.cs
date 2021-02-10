@@ -8,6 +8,6 @@ namespace AspForum.Models
     public class PostsListModel
     {
         public IEnumerable<Post> postsList { get; set; }
-        public string topicName { get; set; }
+        public Topic topic { get; set; }
     }
 }

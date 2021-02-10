@@ -3,7 +3,9 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<h1>@Model.topicName</h1>
+<h1>Welcome to <span>@Model.topic.Title</span> topic</h1>
+@if (Model.postsList.Any())
+{
 <table class="table table-hover" id="tablePost">
     <tbody>
         @foreach (var post in Model.postsList)
@@ -20,18 +22,27 @@
                 <td>
                     @post.Content
                 </td>
-                @if (SignInManager.IsSignedIn(User) && User.Identity.Name == post.User.UserName)
+                @if (SignInManager.IsSignedIn(User) && UserManager.GetUserId(User) == post.User.Id)
                 {
                     <td>
-
-                        <button class="btn btn-dark">Edit</button>
-
-
-                        <button class="btn btn-danger">Delete</button>
-
+                        <a asp-controller="Post" asp-action="Edit" asp-route-id="@post.Id" class="btn btn-dark">
+                        Edit
+                        </a>
+                        <form action="@Url.Action("DeletePost","Post", new{ postId = post.Id })" method="post">
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                        </form>
+                       
                     </td>
                 }
             </tr>
         }
     </tbody>
 </table>
+}
+else { 
+<h2>Looks like there aren't any posts here...<br />
+    Would you like to 
+    <a asp-controller="Post" asp-action="Create" asp-route-id="@Model.topic.Id">create</a>
+    a new one?
+</h2>
+}
