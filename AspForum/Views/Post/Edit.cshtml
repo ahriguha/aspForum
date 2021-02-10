@@ -2,11 +2,12 @@
 
 <h2>Edit a post content:</h2>
 
-<form asp-action="EditPost" method="post" id="posEditingForm">
-    
+<form asp-antiforgery="true" asp-action="Edit" method="post" id="posEditingForm">
+    <div class="tex-danger" asp-validation-summary="ModelOnly"></div>
     <div class="form-group">
         <label asp-for="newContent"></label>
         <textarea asp-for="newContent" class="form-control"></textarea>
+        <span asp-validation-for="newContent" class="text-danger"></span>
     </div>
     <button type="submit" id="creationSubmitBtn" class="btn btn-success">
         Submit

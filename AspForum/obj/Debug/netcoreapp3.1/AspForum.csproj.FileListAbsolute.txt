@@ -171,3 +171,4 @@ D:\Duni\AspForum\AspForum\AspForum\obj\Debug\netcoreapp3.1\AspForum.csprojAssemb
 D:\Duni\AspForum\AspForum\AspForum\obj\Debug\netcoreapp3.1\Razor\Views\Forum\Topic.cshtml.g.cs
 D:\Duni\AspForum\AspForum\AspForum\obj\Debug\netcoreapp3.1\Razor\Views\Post\Create.cshtml.g.cs
 D:\Duni\AspForum\AspForum\AspForum\obj\Debug\netcoreapp3.1\Razor\Views\Post\Edit.cshtml.g.cs
+D:\Duni\AspForum\AspForum\AspForum\obj\Debug\netcoreapp3.1\Razor\Views\Topic\Create.cshtml.g.cs

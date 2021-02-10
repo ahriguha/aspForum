@@ -1,23 +1,43 @@
 ﻿@model AspForum.Models.TopicsListModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 
-<h1>Topics</h1>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Topics</h1>
+        </div>
+        <div class="col-md-auto">
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <a asp-controller="Topic" asp-action="Create">Create new topic</a>
+            }
+            else
+            {
+                <h4>Sign in to create a new topic or write posts!</h4>
+            }
+        </div>
+    </div>
+</div>
+
 <table class="table table-hover" id="topicListTable">
     <tbody>
-        @foreach(var topic in Model.topicsList)
+        @foreach (var topic in Model.topicsList)
         {
-        <tr>
-            <td>
-                <a asp-controller="Forum" asp-action="Topic" asp-route-id="@topic.Id">
-                    @topic.Title
-                </a>               
-            </td>
-            <td>
-                @topic.Description
-            </td>
-            <td>
-                @topic.Created
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    <a asp-controller="Forum" asp-action="Topic" asp-route-id="@topic.Id">
+                        @topic.Title
+                    </a>
+                </td>
+                <td>
+                    @topic.Description
+                </td>
+                <td>
+                    @topic.Created
+                </td>
+            </tr>
         }
     </tbody>
 </table>

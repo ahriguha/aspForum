@@ -24,6 +24,7 @@ namespace AspForum.Controllers
 
         public IActionResult Create(int id)
         {
+
             var topic = _topicService.GetById(id);
 
             var model = new NewPostModel
@@ -50,20 +51,28 @@ namespace AspForum.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddPost(NewPostModel model)
+        public async Task<IActionResult> Create(NewPostModel model)
         {
-            var user = await _userManager.FindByIdAsync(_userManager.GetUserId(User));
-            Post post = CreatePost(model, user);
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByIdAsync(_userManager.GetUserId(User));
+                Post post = CreatePost(model, user);
 
-            await _postService.Create(post);
-            return RedirectToAction("Topic", "Forum", new { id = model.topicId});
+                await _postService.Create(post);
+                return RedirectToAction("Topic", "Forum", new { id = model.topicId });
+            }
+            else return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditPost(EditPostModel model)
+        public async Task<IActionResult> Edit(EditPostModel model)
         {
-            await _postService.UpdatePostContent(model.postId, model.newContent);
-            return RedirectToAction("Topic", "Forum", new { id = model.topicId });
+            if (ModelState.IsValid)
+            {
+                await _postService.UpdatePostContent(model.postId, model.newContent);
+                return RedirectToAction("Topic", "Forum", new { id = model.topicId });
+            }
+            else return View(model);
         }
 
 

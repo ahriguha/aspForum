@@ -3,46 +3,62 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<h1>Welcome to <span>@Model.topic.Title</span> topic</h1>
+
 @if (Model.postsList.Any())
 {
-<table class="table table-hover" id="tablePost">
-    <tbody>
-        @foreach (var post in Model.postsList)
-        {
-            <tr class="mt-2 mb-2">
-                <td class="align-content-start border-bottom">
-                    <div class="container" style="height: 50%">
-                        <p>@post.User.Email</p>
-                    </div>
-                    <div class="container" style="height: 50%">
-                        <p>@post.Created</p>
-                    </div>
-                </td>
-                <td>
-                    @post.Content
-                </td>
-                @if (SignInManager.IsSignedIn(User) && UserManager.GetUserId(User) == post.User.Id)
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Welcome to <span>@Model.topic.Title</span> topic</h1>
+            </div>
+            <div class="col-md-auto">
+                @if (SignInManager.IsSignedIn(User))
                 {
-                    <td>
-                        <a asp-controller="Post" asp-action="Edit" asp-route-id="@post.Id" class="btn btn-dark">
-                        Edit
-                        </a>
-                        <form action="@Url.Action("DeletePost","Post", new{ postId = post.Id })" method="post">
-                        <input type="submit" value="Delete" class="btn btn-danger" />
-                        </form>
-                       
-                    </td>
+                    <a asp-controller="Post" asp-action="Create" asp-route-id="@Model.topic.Id">Create new post</a>
                 }
-            </tr>
-        }
-    </tbody>
-</table>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-hover" id="tablePost">
+        <tbody>
+            @foreach (var post in Model.postsList)
+            {
+                <tr class="mt-2 mb-2">
+                    <td class="align-content-start border-bottom">
+                        <div class="container" style="height: 50%">
+                            <p>@post.User.Email</p>
+                        </div>
+                        <div class="container" style="height: 50%">
+                            <p>@post.Created</p>
+                        </div>
+                    </td>
+                    <td>
+                        @post.Content
+                    </td>
+                    @if (SignInManager.IsSignedIn(User) && UserManager.GetUserId(User) == post.User.Id)
+                    {
+                        <td>
+                            <a asp-controller="Post" asp-action="Edit" asp-route-id="@post.Id" class="btn btn-dark">
+                                Edit
+                            </a>
+                            <form action="@Url.Action("DeletePost","Post", new{ postId = post.Id })" method="post">
+                                <input type="submit" value="Delete" class="btn btn-danger" />
+                            </form>
+
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
 }
-else { 
-<h2>Looks like there aren't any posts here...<br />
-    Would you like to 
-    <a asp-controller="Post" asp-action="Create" asp-route-id="@Model.topic.Id">create</a>
-    a new one?
-</h2>
+else
+{
+    <h2>
+        Looks like there aren't any posts here...<br />
+        Would you like to
+        <a asp-controller="Post" asp-action="Create" asp-route-id="@Model.topic.Id">create</a>
+        a new one?
+    </h2>
 }

@@ -18,9 +18,10 @@ namespace AspForum.Services
         {
             _context = context;
         }
-        public Task Create(Topic topic)
+        public async Task Create(Topic topic)
         {
-            throw new NotImplementedException();
+            _context.Add(topic);
+            await _context.SaveChangesAsync();
         }
 
         public Task Delete(int topicId)

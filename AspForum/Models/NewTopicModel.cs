@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace AspForum.Models
 {
-    public class EditPostModel
+    public class NewTopicModel
     {
-        public int postId { get; set; }
         [Required]
-        public string newContent { get; set; }
-        public int topicId { get; set; }
+        public string Title { get; set; }
+        [Required]
+        public string Description { get; set; }
     }
 }

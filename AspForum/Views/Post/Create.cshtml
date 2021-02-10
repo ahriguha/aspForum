@@ -2,14 +2,17 @@
 
 <h2>Create a new post for a @Model.topicName topic:</h2>
 
-<form asp-action="AddPost" method="post" id="posAddingForm">
+<form asp-antiforgery="true" asp-action="Create" method="post" id="postAddingForm">
+    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
     <div class="form-group">
         <label asp-for="postTitle"></label>
         <input asp-for="postTitle" class="form-control" />
+        <span asp-validation-for="postTitle" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="postContent"></label>
         <textarea asp-for="postContent" class="form-control"></textarea>
+        <span asp-validation-for="postContent" class="text-danger"></span>
     </div>
     <button type="submit" id="creationSubmitBtn" class="btn btn-success">
         Submit
