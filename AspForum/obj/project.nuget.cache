@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2bHQtzE+lPXGA0vlTjgr/uaipmpfgCT69AbLlikM2bct9JTFTS0cnt5kur6baPDowbBVOC68yVMyCyzgls1e3w==",
+  "dgSpecHash": "fx0aaq+5lgquZLAmG3SncKYfgUPwWPPVpyun8dI12U2to2ZZPXfdB3uBSj107alu3CvEbG0oGd53bLTtQMEywQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\AspForum\\aspforum\\AspForum\\AspForum.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\AspForum\\AspForum\\AspForum\\AspForum.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.5\\microsoft.aspnetcore.cryptography.internal.3.1.5.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.5\\microsoft.aspnetcore.cryptography.keyderivation.3.1.5.nupkg.sha512",

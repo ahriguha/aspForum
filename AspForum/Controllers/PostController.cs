@@ -15,39 +15,54 @@ namespace AspForum.Controllers
         private readonly ITopic _topicService;
         private readonly IPost _postService;
         private readonly UserManager<IdentityUser> _userManager;
-        public PostController(ITopic topicService, IPost postService, UserManager<IdentityUser> userManager)
+        private readonly SignInManager<IdentityUser> _signInManager;
+        public PostController(ITopic topicService,
+            IPost postService,
+            UserManager<IdentityUser> userManager,
+            SignInManager<IdentityUser> signInManager
+            )
         {
             _topicService = topicService;
             _postService = postService;
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         public IActionResult Create(int id)
         {
-
-            var topic = _topicService.GetById(id);
-
-            var model = new NewPostModel
+            if (_signInManager.IsSignedIn(User))
             {
-                topicId = topic.Id,
-                topicName = topic.Title
-            };
 
-            return View(model);
+                var topic = _topicService.GetById(id);
+
+                var model = new NewPostModel
+                {
+                    topicId = topic.Id,
+                    topicName = topic.Title
+                };
+
+                return View(model);
+            }
+            else return RedirectToAction("Index", "Home");
         }
 
         public IActionResult Edit(int id)
         {
-            var post = _postService.GetById(id);
-
-            var model = new EditPostModel
+            
+                var post = _postService.GetById(id);
+            if (_userManager.GetUserId(User) == post.User.Id)
             {
-                postId = post.Id,
-                newContent = post.Content,
-                topicId = post.topic.Id
-            };
+                var model = new EditPostModel
+                {
+                    postId = post.Id,
+                    newContent = post.Content,
+                    topicId = post.topic.Id
+                };
 
-            return View(model);
+                return View(model);
+            }
+            else return RedirectToAction("Topic", "Forum", new { id = post.topic.Id});
+            
         }
 
         [HttpPost]

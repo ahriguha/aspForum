@@ -14,21 +14,32 @@ namespace AspForum.Controllers
         private readonly ITopic _topicService;
         private readonly IPost _postService;
         private readonly UserManager<IdentityUser> _userManager;
-        public TopicController(ITopic topicService, IPost postService, UserManager<IdentityUser> userManager)
+        private readonly SignInManager<IdentityUser> _signInManager;
+        public TopicController(ITopic topicService,
+            IPost postService,
+            UserManager<IdentityUser> userManager,
+            SignInManager<IdentityUser> signInManager
+            )
         {
             _topicService = topicService;
             _postService = postService;
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         public IActionResult Create()
         {
-            return View(new NewTopicModel());
+            if (_signInManager.IsSignedIn(User))
+            {
+                return View(new NewTopicModel());
+            }
+            else return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
         public async Task<IActionResult> Create(NewTopicModel model)
         {
+
             if (ModelState.IsValid)
             {
                 Topic topic = CreateTopic(model);

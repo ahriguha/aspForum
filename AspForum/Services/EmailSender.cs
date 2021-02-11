@@ -1,5 +1,6 @@
 ﻿using AspForum.Services;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using SendGrid;
 using SendGrid.Helpers.Mail;
@@ -9,16 +10,18 @@ namespace WebPWrecover.Services
 {
     public class EmailSender : IEmailSender
     {
-        public EmailSender(IOptions<AuthMessageSenderOptions> optionsAccessor)
+        public EmailSender(IConfiguration configuration)
         {
-            Options = optionsAccessor.Value;
+            Options = new AuthMessageSenderOptions();
+            Options.SendGridUser = configuration.GetSection("SendGridUser").Value;
+            Options.SendGridKey = configuration.GetSection("SendGridKey").Value;    
         }
 
-        public AuthMessageSenderOptions Options { get; } //set only via Secret Manager
+        public AuthMessageSenderOptions Options { get; set; } //set only via Secret Manager
 
         public Task SendEmailAsync(string email, string subject, string message)
         {
-            return Execute("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", subject, message, email);
+            return Execute(Options.SendGridKey, subject, message, email);
         }
 
         public Task Execute(string apiKey, string subject, string message, string email)
@@ -26,7 +29,7 @@ namespace WebPWrecover.Services
             var client = new SendGridClient(apiKey);
             var msg = new SendGridMessage()
             {
-                From = new EmailAddress("aspforumtest@gmail.com", "apikey"),
+                From = new EmailAddress("aspforumtest@gmail.com", Options.SendGridUser),
                 Subject = subject,
                 PlainTextContent = message,
                 HtmlContent = message
