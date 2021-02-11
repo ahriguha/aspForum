@@ -5,16 +5,11 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\Admin\Desktop\AspForumPublish</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Admin\source\repos\AspForum\AspForum\ReleaseBuild</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
-    <DestinationConnectionStrings Include="DefaultConnection">
-      <Value>Server=%28localdb%29\mssqllocaldb%3bDatabase=aspnet-AspForum-60261EA5-036D-4DAD-B1E8-6C92D610AC4C%3bTrusted_Connection=True%3bMultipleActiveResultSets=true</Value>
+    <DestinationConnectionStrings Include="RemoteConnection">
+      <Value>Data Source=aspforumdbserver.database.windows.net%3bInitial Catalog=AspForum_db%3bUser ID=forumAdmin%3bPassword=Vupide43!%3bConnect Timeout=60%3bEncrypt=True%3bTrustServerCertificate=False%3bApplicationIntent=ReadWrite%3bMultiSubnetFailover=False</Value>
     </DestinationConnectionStrings>
-  </ItemGroup>
-  <ItemGroup>
-    <EFMigrations Include="AspForum.Data.ApplicationDbContext">
-      <Value>Server=%28localdb%29\mssqllocaldb%3bDatabase=aspnet-AspForum-60261EA5-036D-4DAD-B1E8-6C92D610AC4C%3bTrusted_Connection=True%3bMultipleActiveResultSets=true</Value>
-    </EFMigrations>
   </ItemGroup>
 </Project>
