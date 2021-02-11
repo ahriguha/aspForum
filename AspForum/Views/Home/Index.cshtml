@@ -6,8 +6,20 @@
     <h1 class="display-4">Pet Forum</h1>
     <p>It's a technical task for #traineeship in GeeksForLess</p>
     <p>
-    You're welcome to create any topics and post
-    <a asp-controller="Forum" asp-action="Index">here)</a>
+        You're welcome to create any topics and post
+        <a asp-controller="Forum" asp-action="Index">
+            here)
+        </a>
     </p>
-    <p>But first make a new account or log into an existing one ^-^</p>
+    <p>
+        But first make a
+        <a asp-area="Identity" asp-page="/Account/Register">
+            new account
+        </a>
+        or
+        <a asp-area="Identity" asp-page="/Account/Login">
+            log into
+        </a>
+        an existing one ^-^
+    </p>
 </div>

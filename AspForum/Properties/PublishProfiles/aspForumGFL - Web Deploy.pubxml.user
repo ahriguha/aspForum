@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Этот файл используется процессом публикации или упаковки вашего веб-проекта. Можно настроить поведение этого процесса,
+изменив этот файл MSBuild. Подробности см. на странице https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAoQqK68SlPEKKbNQpPib1TgAAAAACAAAAAAAQZgAAAAEAACAAAAD4syV5K1kR0tQ3aKgQL3a9Rj9bIFbdFZcKVBgjBkrYxwAAAAAOgAAAAAIAACAAAADq5ZKWRrKc+qy41olOZnfJbEaUYEKYYWkoJ260X15jkoAAAAAXvkPGDA3DeQYx/6jJrFfUHQmaKRcJU6OeEjyS6ddbaD3eAKzXC5XFY5qgowuyXFbkpaHFKU7Kj3nYl+0Ml3mePOs9bz3hyHEfLmGw5xCfb/s1U4PLOn4qMkSzCGh2s5j4VOkG1hvNqOmVuA/bBKGnSD3mBD83B+BVn/7pmAfWukAAAADIoNzBAenu7GOVso8Wxznsj/bzV1lNuLtv94vIzQtdgvmlG5B6Z/yZ9Enhg3QiZjhm5YoPs0/uAwvU97OchaYt</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=tcp:aspforumdbserver.database.windows.net,1433%3bInitial Catalog=AspForum_db%3bUser Id=forumAdmin%40aspforumdbserver%3bPassword=Vupide43!</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

@@ -96,8 +96,18 @@ namespace AspForum.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return Page();
+                    var user = await _userManager.FindByEmailAsync(Input.Email);
+                    if (user != null && user.EmailConfirmed == false)
+                    {
+                        await _userManager.DeleteAsync(user);
+                        ModelState.AddModelError(string.Empty, "Your Email wasn't confirmed. Try to create an account one more time");
+                        return Page();
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                        return Page();
+                    }
                 }
             }
 

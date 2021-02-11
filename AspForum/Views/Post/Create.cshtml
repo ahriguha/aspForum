@@ -5,12 +5,12 @@
 <form asp-antiforgery="true" asp-action="Create" method="post" id="postAddingForm">
     <div class="text-danger" asp-validation-summary="ModelOnly"></div>
     <div class="form-group">
-        <label asp-for="postTitle"></label>
+        <label asp-for="postTitle">Title</label>
         <input asp-for="postTitle" class="form-control" />
         <span asp-validation-for="postTitle" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="postContent"></label>
+        <label asp-for="postContent">Content</label>
         <textarea asp-for="postContent" class="form-control"></textarea>
         <span asp-validation-for="postContent" class="text-danger"></span>
     </div>
