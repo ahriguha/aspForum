@@ -344,3 +344,5 @@ C:\Users\Admin\source\repos\AspForum\aspforum\AspForum\obj\Debug\netcoreapp3.1\A
 C:\Users\Admin\source\repos\AspForum\aspforum\AspForum\obj\Debug\netcoreapp3.1\AspForum.dll
 C:\Users\Admin\source\repos\AspForum\aspforum\AspForum\obj\Debug\netcoreapp3.1\AspForum.pdb
 C:\Users\Admin\source\repos\AspForum\aspforum\AspForum\obj\Debug\netcoreapp3.1\AspForum.genruntimeconfig.cache
+D:\forum\AspForum\obj\Debug\netcoreapp3.1\AspForum.dll
+D:\forum\AspForum\obj\Debug\netcoreapp3.1\AspForum.pdb
